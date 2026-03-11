@@ -22,12 +22,10 @@
 #define CAN0_CS  10
 MCP_CAN CAN0(CAN0_CS);
 
-// Serial RX buffer for Android -> CAN
 #define SERIAL_BUF_SIZE 32
 uint8_t serialBuf[SERIAL_BUF_SIZE];
 uint8_t serialIdx = 0;
 
-// CAN Rx
 long unsigned int rxId;
 unsigned char len = 0;
 unsigned char rxBuf[8];
@@ -51,10 +49,8 @@ void setup() {
 }
 
 void loop() {
-  // 1) Serial Rx -> CAN Tx: Forward Android transmit to CAN bus
   processSerialToCan();
 
-  // 2) CAN Rx -> Serial Tx: Forward CAN bus to Android
   processCanToSerial();
 }
 
@@ -63,7 +59,7 @@ void processSerialToCan() {
     uint8_t b = Serial.read();
 
     if (serialIdx == 0 && b != 0xAA) {
-      continue;  // Wait for start byte
+      continue;
     }
 
     serialBuf[serialIdx++] = b;
@@ -73,7 +69,7 @@ void processSerialToCan() {
 
       if (serialBuf[0] == 0xAA && serialBuf[15] == 0xBB) {
         uint8_t idType = serialBuf[1];
-        if (idType == 0) idType = 1;  // 0 from app -> Standard
+        if (idType == 0) idType = 1;
 
         uint32_t canId = (uint32_t)serialBuf[2] << 24 |
                          (uint32_t)serialBuf[3] << 16 |
@@ -87,7 +83,7 @@ void processSerialToCan() {
         uint8_t ext = (idType == 2) ? 1 : 0;
         byte result = CAN0.sendMsgBuf(canId, ext, dlc, &serialBuf[7]);
 
-        (void)result;  // Optionally handle send failure
+        (void)result;
       }
     } else if (serialIdx >= SERIAL_BUF_SIZE) {
       serialIdx = 0;
