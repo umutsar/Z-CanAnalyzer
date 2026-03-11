@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Phone portrait: 4 cols = 2 rows (D0-D3 üstte, D4-D7 altta) -->
+    <integer name="grid_data_column_count">4</integer>
+</resources>

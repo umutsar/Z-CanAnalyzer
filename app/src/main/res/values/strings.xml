@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Z-CAN Analyzer</string>
+
+    <!-- Connection -->
+    <string name="btn_connect">Connect</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="btn_pause">Pause Rx</string>
+    <string name="btn_resume">Resume Rx</string>
+    <string name="status_disconnected">Status: Disconnected</string>
+
+    <!-- Tx Panel -->
+    <string name="label_can_id">CAN ID (hex)</string>
+    <string name="label_dlc">DLC (1-8)</string>
+    <string name="label_data_format">Payload format</string>
+    <string name="label_payload">Payload</string>
+    <string name="label_transmit_mode">Transmit mode</string>
+    <string name="rb_single_shot">Single shot</string>
+    <string name="rb_periodic">Periodic</string>
+    <string name="label_interval">Interval (ms)</string>
+    <string name="btn_transmit">Transmit</string>
+    <string name="btn_stop_transmit">Stop transmit</string>
+    <string name="tx_panel_bar">Transmit</string>
+
+    <!-- Trace -->
+    <string name="trace_waiting">Waiting for bus traffic…</string>
+    <string name="trace_cleared">--- Trace cleared ---</string>
+
+    <!-- Status messages -->
+    <string name="status_connect_first">Status: Connect first!</string>
+    <string name="status_no_device">Status: No device found!</string>
+    <string name="status_awaiting_permission">Status: Awaiting permission…</string>
+    <string name="status_connection_error">Status: Connection error!</string>
+    <string name="status_connected">Status: Connected</string>
+    <string name="status_disconnected_msg">Status: Disconnected</string>
+    <string name="status_rx_paused">Status: Reception paused</string>
+    <string name="status_listening">Status: Listening</string>
+    <string name="status_enter_can_id">Status: Enter CAN ID!</string>
+    <string name="status_invalid_can_id">Status: Invalid CAN ID!</string>
+    <string name="status_can_id_range">Status: CAN ID must be 0–0x1FFFFFFF</string>
+    <string name="status_byte_range">Status: Byte D%1$d must be 0-255</string>
+    <string name="status_interval_min">Status: Interval must be 10 ms or more</string>
+
+    <!-- Log -->
+    <string name="log_tx">Tx  ID: 0x%1$s  DLC: %2$d  Data: %3$s</string>
+    <string name="log_rx">Rx  ID: 0x%1$s  DLC: %2$d  Data: %3$s</string>
+    <string name="log_error">Error: %1$s</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablet (7"+): 8 cols = 1 satır yan yana -->
+    <integer name="grid_data_column_count">8</integer>
+</resources>
